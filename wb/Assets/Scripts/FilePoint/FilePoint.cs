@@ -2,11 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class FilePoint : MonoBehaviour {
 
-    //public bool IsUse;
+    FileSave fs = new FileSave();   
 
-    public void Save() { }
-    public void Recover() { }
+    /// <summary>
+    /// 存档
+    /// </summary>
+    /// <param name="h"></param>
+    public void Save(float h) {
+        fs.Save(h);
+    }
+
+    /// <summary>
+    /// 恢复血量
+    /// </summary>
+    public void Recover() {
+        PlayerManager.instance.HpUp();
+    }
+
+    /// <summary>
+    /// 读取存档
+    /// </summary>
+    public void Read() {
+        fs.Read();
+    }
 
 }

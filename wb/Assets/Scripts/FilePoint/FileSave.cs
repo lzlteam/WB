@@ -1,21 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
-using System.IO;
-using System.Text;
-using System.Security.Cryptography;
-using Newtonsoft.Json;
+using System.Collections.Generic;
 
+public class FileSave
+{
+    //定义存档路径
+    static string dirpath = Application.persistentDataPath + "/Save";
 
-public class FileSave : MonoBehaviour {
+    //定义存档文件路径
+    static string filename = dirpath + "/GameData.sav";
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void Save(float h){
+        //创建存档文件夹
+        IOHelper.CreateDirectory(dirpath);
+        FileMessage m = new FileMessage(h);
+        //保存数据
+        IOHelper.SetData(filename, m);
+    }
+
+    public void Read() {
+        //读取数据
+        FileMessage m1 = (FileMessage)IOHelper.GetData(filename, typeof(FileMessage));
+        Debug.Log(m1.hp);
+        Debug.Log(m1.OwnProp["test"]);
+    }
 }
