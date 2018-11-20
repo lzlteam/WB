@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Test1 : Prop {
-    private string name = "Test1";
-    private bool IsOwn = false;
-    private int allNum = 0;
+    public string name = "Test1";
+    public bool IsOwn = false;
+    public int allNum = 0;
 
 
     private void Start()

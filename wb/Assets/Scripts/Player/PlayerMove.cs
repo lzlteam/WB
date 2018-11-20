@@ -20,9 +20,11 @@ public class PlayerMove : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        Move();//玩家的移动
-        Rotate();//玩家跟随摄像机位置旋转
-
+        if (PlayerManager.instance.GetHp() > 0)   
+        {
+            Move();//玩家的移动
+            Rotate();//玩家跟随摄像机位置旋转 }
+        }
     }
     public void Move()
     {
@@ -53,6 +55,7 @@ public class PlayerMove : MonoBehaviour {
             anim.SetInteger("Speed", 0);
         }
     }
+
     public void Rotate()
     {
         pTarget = GameObject.Find("Main Camera").transform.eulerAngles.y;

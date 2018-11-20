@@ -9,10 +9,17 @@ public class PlayerManager : MonoBehaviour {
     private void Awake()
     {
         instance = this;
+        hp = 100;
     }
 
     public void Move() { }
+
+    public float GetHp() {
+        return hp;
+    }
     public void HpDown() { }
     public void HpUp() { }
+
+    
 
 }
