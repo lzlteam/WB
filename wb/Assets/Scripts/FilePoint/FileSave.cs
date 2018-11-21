@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class FileSave
 {
+    
     //定义存档路径
     static string dirpath = Application.persistentDataPath + "/Save";
 

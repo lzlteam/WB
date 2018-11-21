@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FilePoint : MonoBehaviour {
-
-    FileSave fs = new FileSave();   
-
     /// <summary>
     /// 存档
     /// </summary>
     /// <param name="h"></param>
     public void Save(float h) {
+        FileSave fs = new FileSave();
         fs.Save(h);
     }
 
@@ -25,6 +23,7 @@ public class FilePoint : MonoBehaviour {
     /// 读取存档
     /// </summary>
     public void Read() {
+        FileSave fs = new FileSave();
         fs.Read();
     }
 
