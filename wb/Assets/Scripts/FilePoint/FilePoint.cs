@@ -16,7 +16,7 @@ public class FilePoint : MonoBehaviour {
     /// 恢复血量
     /// </summary>
     public void Recover() {
-        PlayerManager.instance.HpUp();
+        //PlayerManager.instance.HpUp();
     }
 
     /// <summary>

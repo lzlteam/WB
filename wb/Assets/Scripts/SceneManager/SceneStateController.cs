@@ -17,6 +17,7 @@ public class SceneStateController{
         if (isLoadScene)
         {
             mAO = SceneManager.LoadSceneAsync(mState.getName());
+            //Debug.Log("1");
             mIsRunStart = false;
         }
         else
