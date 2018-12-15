@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class PropUI : CharactorUI {
 
-    Dictionary<int, bool> BagIndex;
-    int maxpanel;
-    public Image[] images;
-    public GameObject Bag;
+    Dictionary<int, bool> BagIndex;         //背包状态UI字典
+    int maxpanel;                           //背包最大格数
+    public Image[] images;                  //道具小图标
+    public GameObject Bag;                  //背包UI对象
 
     /// <summary>
     /// 初始化道具背包（道具状态字典等）

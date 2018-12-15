@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BagProp : Prop {
     
     public Image pic2D;
+    public int mID;
 
     /// <summary>
     /// 将道具添加到背包中

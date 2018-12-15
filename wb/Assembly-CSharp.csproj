@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Audio\MainAudioController.cs" />
     <Compile Include="Assets\Scripts\Character\Attribute\Attribute.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyAI.cs" />

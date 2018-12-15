@@ -5,4 +5,6 @@ using UnityEngine;
 public class InteractiveProp : Prop {
     public bool IsUsed = false;
 
+
+    public void Reset() { }
 }

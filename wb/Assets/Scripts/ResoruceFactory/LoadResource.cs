@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadResource{
+public class LoadResource :MonoBehaviour{
 
     public const string mRobotModelPath = "Charactor/Robot/";
     public const string mEnemyModelPath = "Charactor/Enemy/";
@@ -11,7 +11,11 @@ public class LoadResource{
     public const string mAudioClipPath = "AudioClip/";
     public const string mUIPath = "UI/";
 
-
+    public static LoadResource instance;
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public GameObject LoadRobot(string name)
     {

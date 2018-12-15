@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour {
     public GameObject mprefab;
     public ParticleSystem mparticle;
     public int mID;       //敌人在敌人池中的id
+    
 
     public void Revive() {
         gameObject.SetActive(true);
