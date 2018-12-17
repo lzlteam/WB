@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 877dbc605f9e99b48b388375acabe731
+=======
+guid: 27db0af9548c2ed4196b3a5091abedb6
+>>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
