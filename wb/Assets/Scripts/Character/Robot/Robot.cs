@@ -9,6 +9,8 @@ public class Robot{
     public string m_particle;           //自带的特效
     public bool m_IsCollide;            //检测是否碰到可触发的东西
     public GameObject m_Robot;          //用来接收实例化的机器人
+    private Animator m_Animator;
+    private CharacterController m_characterController;
 
 
     /// <summary>
@@ -26,10 +28,17 @@ public class Robot{
     /// 传入方向
     /// </summary>
     /// <param name="direction"></param>
-    public void Move(Vector2 direction) {
+    public void Move(Vector3 direction) {
+        m_Animator = m_Robot.GetComponent<Animator>();
+        m_characterController = m_Robot.GetComponent<CharacterController>();
+        m_Animator.SetFloat("Speed_f", 0.5f);
+        m_characterController.Move(direction * m_attribut.m_speed);
     
     }
+    public void Jump()
+    {
 
+    }
 
     //机器人死了，可以触发重新开始，退出游戏等
     public void Die() {
