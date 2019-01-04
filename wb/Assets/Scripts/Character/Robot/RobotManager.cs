@@ -6,7 +6,8 @@ using UnityEngine;
 /// 将这个脚本放到起始点，然后实例化出来的机器人作为他的子对象
 /// </summary>
 
-public class RobotManager : MonoBehaviour {
+public class RobotManager : GameManager
+{
     
     private Robot mrobot;               
     public static RobotManager instance;
@@ -30,11 +31,7 @@ public class RobotManager : MonoBehaviour {
         mrobot.Init(hp, maxhp, speed, damage, name,prefab,particle);
     }
 
-    /// <summary>
-    /// 更新（操控）机器人的行为
-    /// </summary>
-    private void Update()
-    {
-        
+    public void RobotMove(Vector2 direction) {
+        //mrobot.Move(direction);
     }
 }

@@ -11,7 +11,7 @@ public class AtrributeUI : CharactorUI
 
 
     /// <summary>
-    /// 将机器人的基本属性赋值给UI，完成初始化
+    /// 将机器人的基本属性赋值给UI，完成初始化,通过find方法找到对应的gameobject
     /// </summary>
     public void Init()
     {

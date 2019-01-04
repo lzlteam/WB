@@ -11,10 +11,9 @@ public class PropUI : CharactorUI {
     public GameObject Bag;                  //背包UI对象
 
     /// <summary>
-    /// 初始化道具背包（道具状态字典等）
+    /// 初始化道具背包（道具状态字典等）,通过find方法找到对应的gameobject
     /// </summary>
     public void Init() {
-        
     }
 
 

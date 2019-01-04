@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy{
 
     public Attribute mattribut;
     public EnemyAI menemyAI;
@@ -12,11 +12,11 @@ public class Enemy : MonoBehaviour {
     
 
     public void Revive() {
-        gameObject.SetActive(true);
+        mprefab.SetActive(true);
     }
 
     public void Die() {
-        gameObject.SetActive(false);
+        mprefab.SetActive(false);
     }
 
     /// <summary>
@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour {
     public void Init(float hp, float maxhp, float speed, float damage, string name,int id) {
         mattribut = new Attribute(hp, maxhp, speed, damage, name);
         mID = id;
+        menemyAI = new EnemyAI();
     }
 
     /// <summary>

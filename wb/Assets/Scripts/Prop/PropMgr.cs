@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PropMgr : MonoBehaviour {
+public class PropMgr : GameManager
+{
 
     public static PropMgr instance;
     public Dictionary<string, BagProp> OwnProp;  //道具字典，存储当前拥有的道具

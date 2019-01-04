@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FilePoint : MonoBehaviour {
+public class FilePoint : GameManager {
     /// <summary>
     /// 存档
     /// </summary>

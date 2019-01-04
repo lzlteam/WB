@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainAudioController : MonoBehaviour {
+public class MainAudioController : GameManager
+{
 
     private AudioClip mBackGroundMusic;
     public static MainAudioController instance;

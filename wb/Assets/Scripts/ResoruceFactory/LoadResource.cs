@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoadResource :MonoBehaviour{
+public class LoadResource
+{
 
     public const string mRobotModelPath = "Charactor/Robot/";
     public const string mEnemyModelPath = "Charactor/Enemy/";
@@ -10,12 +11,7 @@ public class LoadResource :MonoBehaviour{
     public const string mParticlePath = "Particle/";
     public const string mAudioClipPath = "AudioClip/";
     public const string mUIPath = "UI/";
-
-    public static LoadResource instance;
-    private void Awake()
-    {
-        instance = this;
-    }
+    
 
     public GameObject LoadRobot(string name)
     {
@@ -46,7 +42,7 @@ public class LoadResource :MonoBehaviour{
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public GameObject Instantiation(string path) {
+    private GameObject Instantiation(string path) {
         UnityEngine.Object o = Resources.Load(path);
         if (o == null) {
             Debug.LogError("无法加载资源，路径:" + path);
@@ -61,7 +57,7 @@ public class LoadResource :MonoBehaviour{
     /// </summary>
     /// <param name="path"></param>
     /// <returns></returns>
-    public UnityEngine.Object LoadAsset(string path) {
+    private UnityEngine.Object LoadAsset(string path) {
         UnityEngine.Object o = Resources.Load(path);
         if (o == null){
             Debug.LogError("无法加载资源，路径:" + path);

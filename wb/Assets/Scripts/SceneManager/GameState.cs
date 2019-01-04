@@ -9,9 +9,7 @@ public class GameState : ISceneState
     }
     public override void StateStart()
     {
-        EnemyManager.instance.Init();
-        //RobotManager.instance.Init();
-        UIController.instance.Init();
+        
     }
 
     public override void StateUpdate()
