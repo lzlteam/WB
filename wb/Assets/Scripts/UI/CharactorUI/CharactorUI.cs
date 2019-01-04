@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactorUI: MonoBehaviour {
+public class CharactorUI{
 
     protected RobotManager m_player;
 

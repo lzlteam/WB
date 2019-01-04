@@ -22,6 +22,9 @@ public class PropUI : CharactorUI {
 
     public void Show() {
 
+
+        Cursor.visible = true;
+
         m_bag.SetActive(true);
 
     }
@@ -29,6 +32,8 @@ public class PropUI : CharactorUI {
     {
 
         m_bag.SetActive(false);
+
+        Cursor.visible = false;
     }
 
     public void AddProp() {

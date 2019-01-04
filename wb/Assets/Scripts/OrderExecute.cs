@@ -13,26 +13,25 @@ public class OrderExecute : GameManager {
     void Update()
     {
 
-        switch (m_Operat[m_Execute++])
+        switch (m_Operat[m_Execute])
         {
             case KeyCode.W:
-                RobotManager.instance.RobotMove(Vector2.up);
+                RobotManager.instance.RobotMove(Vector3.forward);
                 ResetQueue();
                 break;
             case KeyCode.S:
-                RobotManager.instance.RobotMove(Vector2.down);
+                RobotManager.instance.RobotMove(Vector3.down);
                 ResetQueue();
                 break;
             case KeyCode.A:
-                RobotManager.instance.RobotMove(Vector2.left);
+                RobotManager.instance.RobotMove(Vector3.left);
                 ResetQueue();
                 break;
             case KeyCode.D:
-                RobotManager.instance.RobotMove(Vector2.right);
+                RobotManager.instance.RobotMove(Vector3.right);
                 ResetQueue();
                 break;
             case KeyCode.B:
-                Debug.Log("s");
                 UIController.instance.ShowBagUI();
                 ResetQueue();
                 break;
@@ -44,6 +43,15 @@ public class OrderExecute : GameManager {
 
                 ResetQueue();
                 break;
+            case KeyCode.Space:
+                RobotManager.instance.RobotMove(Vector3.up);
+                ResetQueue();
+                break;
+            case KeyCode.LeftShift:
+                RobotManager.instance.RobotMove(Vector3.forward);
+                ResetQueue();
+                break;
+
             default:
                 break;
         }
@@ -54,6 +62,5 @@ public class OrderExecute : GameManager {
     //执行完命令后，将其从命令队列中移除
     private void ResetQueue() {
         m_Operat[m_Execute] = KeyCode.None;
-        m_Operat[m_Execute - 1] = KeyCode.None;
     }
 }

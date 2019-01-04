@@ -38,6 +38,9 @@ public class UIController : GameManager
         m_mainmeulUI.Init();
         m_atrributeUI.Init();
         m_taskUI.Init();
+
+
+        Cursor.visible = false;
     }
 
 

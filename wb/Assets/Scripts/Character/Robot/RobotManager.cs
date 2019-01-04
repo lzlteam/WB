@@ -10,7 +10,6 @@ public class RobotManager : GameManager
 {
     
     private Robot m_robot;               
-    private Animator m_Animator;
     public static RobotManager instance;
 
     private void Awake()
@@ -31,7 +30,7 @@ public class RobotManager : GameManager
         m_robot.Init(hp, maxhp, speed, damage, name,prefab,particle);
     }
 
-    public void RobotMove(Vector2 direction) {
+    public void RobotMove(Vector3 direction) {
         //mrobot.Move(direction);
     }
 }

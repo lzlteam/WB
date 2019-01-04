@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TaskUI : MonoBehaviour {
+public class TaskUI{
 
     public GameObject m_TaskUI;
 

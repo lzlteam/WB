@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Character\Robot\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Character\Robot\Robot.cs" />
     <Compile Include="Assets\Scripts\Character\Robot\RobotManager.cs" />
+    <Compile Include="Assets\Scripts\CheckInput.cs" />
     <Compile Include="Assets\Scripts\FilePoint\FileMessage.cs" />
     <Compile Include="Assets\Scripts\FilePoint\FilePoint.cs" />
     <Compile Include="Assets\Scripts\FilePoint\FileSave.cs" />

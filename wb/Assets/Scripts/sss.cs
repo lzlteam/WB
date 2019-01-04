@@ -10,8 +10,4 @@ public class sss : MonoBehaviour {
         g.InitScene();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
