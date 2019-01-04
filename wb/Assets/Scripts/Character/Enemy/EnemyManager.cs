@@ -5,18 +5,18 @@ using UnityEngine;
 public class EnemyManager : GameManager
 {
 
-    public int maxNum;
-    public int currentNum;
-    public Transform[] BirthPoint;       //敌人出生点
-    private Enemy[] mEnemy_type1;            //类型1敌人池
-    private Enemy[] mEnemy_type2;            //类型2敌人池
+    public int m_maxNum;
+    public int m_currentNum;
+    public Transform[] m_BirthPoint;       //敌人出生点
+    private Enemy[] m_Enemy_type1;            //类型1敌人池
+    private Enemy[] m_Enemy_type2;            //类型2敌人池
 
     public static EnemyManager instance;
 
     private void Awake()
     {
         instance = this;
-        mEnemy_type1 = new Enemy[maxNum];
+        m_Enemy_type1 = new Enemy[m_maxNum];
     }
 
 

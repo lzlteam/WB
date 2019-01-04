@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class AtrributeUI : CharactorUI
 {
-    public Text _name;
-    public Slider hp;
-    public Image headPortrait;
+    public Text m_name;
+    public Slider m_hp;
+    public Image m_headPortrait;
+    public GameObject m_atrributeUI;
 
 
     /// <summary>
@@ -15,6 +16,12 @@ public class AtrributeUI : CharactorUI
     /// </summary>
     public void Init()
     {
+        /*    初始化 示例
+        m_name = m_atrributeUI.GetComponentInChildren<Text>();
+        m_name.text = "sss";
+        m_hp = m_atrributeUI.GetComponentInChildren<Slider>();
+        m_hp.value = 100;
+        */
     }
 
     /// <summary>

@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrderExecute : GameManager {
 
     //执行操作位符
-    private static int mExecute = 0;
+    private static int m_Execute = 0;
 
 
 
@@ -13,7 +13,7 @@ public class OrderExecute : GameManager {
     void Update()
     {
 
-        switch (mOperat[mExecute++])
+        switch (m_Operat[m_Execute++])
         {
             case KeyCode.W:
                 RobotManager.instance.RobotMove(Vector2.up);
@@ -32,7 +32,12 @@ public class OrderExecute : GameManager {
                 ResetQueue();
                 break;
             case KeyCode.B:
+                Debug.Log("s");
                 UIController.instance.ShowBagUI();
+                ResetQueue();
+                break;
+            case KeyCode.Escape:
+                UIController.instance.ShowMeulUI();
                 ResetQueue();
                 break;
             case KeyCode.E:
@@ -42,13 +47,13 @@ public class OrderExecute : GameManager {
             default:
                 break;
         }
-        mExecute++;
-        mExecute %= 10;
+        m_Execute++;
+        m_Execute %= 10;
     }
 
     //执行完命令后，将其从命令队列中移除
     private void ResetQueue() {
-        mOperat[mExecute] = KeyCode.None;
-        mOperat[mExecute - 1] = KeyCode.None;
+        m_Operat[m_Execute] = KeyCode.None;
+        m_Operat[m_Execute - 1] = KeyCode.None;
     }
 }

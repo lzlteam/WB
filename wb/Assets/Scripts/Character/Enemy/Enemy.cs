@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Enemy{
 
-    public Attribute mattribut;
-    public EnemyAI menemyAI;
-    public GameObject mprefab;
-    public ParticleSystem mparticle;
-    public int mID;       //敌人在敌人池中的id
+    public Attribute m_attribut;
+    public EnemyAI m_enemyAI;
+    public GameObject m_prefab;
+    public ParticleSystem m_particle;
+    public int m_ID;       //敌人在敌人池中的id
     
 
     public void Revive() {
-        mprefab.SetActive(true);
+        m_prefab.SetActive(true);
     }
 
     public void Die() {
-        mprefab.SetActive(false);
+        m_prefab.SetActive(false);
     }
 
     /// <summary>
@@ -24,9 +24,9 @@ public class Enemy{
     /// </summary>
     /// <param name="BirthPoint"></param>
     public void Init(float hp, float maxhp, float speed, float damage, string name,int id) {
-        mattribut = new Attribute(hp, maxhp, speed, damage, name);
-        mID = id;
-        menemyAI = new EnemyAI();
+        m_attribut = new Attribute(hp, maxhp, speed, damage, name);
+        m_ID = id;
+        m_enemyAI = new EnemyAI();
     }
 
     /// <summary>

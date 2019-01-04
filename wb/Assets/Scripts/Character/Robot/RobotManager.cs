@@ -9,9 +9,9 @@ using UnityEngine;
 public class RobotManager : GameManager
 {
     
-    private Robot mrobot;               
+    private Robot m_robot;               
+    private Animator m_Animator;
     public static RobotManager instance;
-    private Animator mAnimator;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class RobotManager : GameManager
     /// <param name="damage"></param>
     /// <param name="name"></param>
     public void Init(float hp, float maxhp, float speed, float damage, string name,string prefab,string particle) {
-        mrobot.Init(hp, maxhp, speed, damage, name,prefab,particle);
+        m_robot.Init(hp, maxhp, speed, damage, name,prefab,particle);
     }
 
     public void RobotMove(Vector2 direction) {

@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class MainMeul : MonoBehaviour {
 
-    public GameObject meul;
+    public GameObject m_meul;
+
+    public void Init() {
+        m_meul.SetActive(false);
+    }
 
     public void Show() { }
     public void Hide() { }

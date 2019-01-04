@@ -4,28 +4,28 @@ using UnityEngine;
 
 public class Attribute{
     
-    public float mhp;                    //生命值
-    public float mdamage;                //伤害值
-    public float mhpmax;                 //最大生命值
-    public string mname;                 //名字
-    public float mspeed;                 //速度
+    public float m_hp;                    //生命值
+    public float m_damage;                //伤害值
+    public float m_hpmax;                 //最大生命值
+    public string m_name;                 //名字
+    public float m_speed;                 //速度
 
     public Attribute(float hp,float maxhp,float speed,float damage,string name) {
-        mhp = hp;
-        mhpmax = maxhp;
-        mspeed = speed;
-        mdamage = damage;
-        mname = name;
+        m_hp = hp;
+        m_hpmax = maxhp;
+        m_speed = speed;
+        m_damage = damage;
+        m_name = name;
     }
 
     public void HpUp(float vhp) {
-        mhp += vhp;
+        m_hp += vhp;
     }
     public void HpDown(float vhp) {
-        mhp -= vhp;
+        m_hp -= vhp;
     }
 
     public float GetCurrentHp() {
-        return mhp;
+        return m_hp;
     }
 }

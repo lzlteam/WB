@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class UIController : GameManager
 {
-    private MainMeul mainmeulUI;
-    private PropUI propUI;
-    private AtrributeUI atrributeUI;
-    private TaskUI taskUI;
-    private bool isBagOpen = false;            //保存背包的状态
-    private bool isMeulOpen = false;           //保存菜单的状态 
+    private MainMeul m_mainmeulUI;
+    private PropUI m_propUI;
+    private AtrributeUI m_atrributeUI;
+    private TaskUI m_taskUI;
+    private bool m_isBagOpen = false;            //保存背包的状态
+    private bool m_isMeulOpen = false;           //保存菜单的状态 
 
     public static UIController instance;
 
@@ -23,14 +23,21 @@ public class UIController : GameManager
     /// </summary>
     public void Init()
     {
-        mainmeulUI = new MainMeul();
-        propUI = new PropUI();
-        atrributeUI = new AtrributeUI();
-        taskUI = new TaskUI();
+        m_mainmeulUI = new MainMeul();
+        m_propUI = new PropUI();
+        m_atrributeUI = new AtrributeUI();
+        m_taskUI = new TaskUI();
+        
 
-        propUI.Init();
-        atrributeUI.Init();
-        taskUI.Init();
+        m_mainmeulUI.m_meul = GameObject.Find("UIController/Meul");
+        m_propUI.m_bag = GameObject.Find("UIController/CharactorUI/PropUI");
+        m_atrributeUI.m_atrributeUI = GameObject.Find("UIController/CharactorUI/AtrributeUI");
+        //m_taskUI.m_TaskUI = GameObject.Find("TaskUI");
+
+        m_propUI.Init();
+        m_mainmeulUI.Init();
+        m_atrributeUI.Init();
+        m_taskUI.Init();
     }
 
 
@@ -39,6 +46,15 @@ public class UIController : GameManager
     /// </summary>
     public void ShowBagUI() {
 
+        if (m_isBagOpen)
+        {
+            m_propUI.Hide();
+            m_isBagOpen = false;
+        }
+        else {
+            m_propUI.Show();
+            m_isBagOpen = true;
+        }
     }
 
     
@@ -47,6 +63,15 @@ public class UIController : GameManager
     /// 打开/关闭菜单UI
     /// </summary>
     public void ShowMeulUI() {
-
+        if (m_isMeulOpen)
+        {
+            m_mainmeulUI.Hide();
+            m_isMeulOpen = false;
+        }
+        else
+        {
+            m_mainmeulUI.Show();
+            m_isMeulOpen = true;
+        }
     }
 }

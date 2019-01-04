@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CharactorUI: MonoBehaviour {
 
-    protected RobotManager player;
+    protected RobotManager m_player;
 
     private void Awake()
     {
-        player = RobotManager.instance;
+        m_player = RobotManager.instance;
     }
 
 

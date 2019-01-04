@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI{
-    public enum enemytype
+    public enum m_enemytype
     {
         NullState,
         AttackState,

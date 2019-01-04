@@ -10,10 +10,10 @@ public class Test1 : BagProp {
     /// </summary>
     private void Start()
     {
-        PropMgr.instance.AllProp.Add(name, this); //将道具自加载到所有道具目录下
-        _name = "Test1";
-        IsOwn = false;
-        allNum = 0;
+        PropMgr.instance.m_AllProp.Add(name, this); //将道具自加载到所有道具目录下
+        m_name = "Test1";
+        m_IsOwn = false;
+        m_allNum = 0;
     }
 
     public override void Use() {
@@ -28,6 +28,6 @@ public class Test1 : BagProp {
     }
 
     public override int GetAllNum(){
-        return allNum;
+        return m_allNum;
     }
 }

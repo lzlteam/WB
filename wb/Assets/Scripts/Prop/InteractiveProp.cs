@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractiveProp : Prop {
-    public bool IsUsed = false;
+    public bool m_IsUsed = false;
 
 
     public void Reset() { }

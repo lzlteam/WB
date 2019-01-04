@@ -6,16 +6,16 @@ public class PropMgr : GameManager
 {
 
     public static PropMgr instance;
-    public Dictionary<string, BagProp> OwnProp;  //道具字典，存储当前拥有的道具
-    public Dictionary<string, InteractiveProp> UseProp;  //可交互道具，包括设备等
-    public Dictionary<string, Prop> AllProp;  // 所有道具
+    public Dictionary<string, BagProp> m_OwnProp;  //道具字典，存储当前拥有的道具
+    public Dictionary<string, InteractiveProp> m_UseProp;  //可交互道具，包括设备等
+    public Dictionary<string, Prop> m_AllProp;  // 所有道具
 
     private void Awake()
     {
         instance = this;
-        AllProp = new Dictionary<string, Prop>();
-        UseProp = new Dictionary<string, InteractiveProp>();
-        OwnProp = new Dictionary<string, BagProp>();
+        m_AllProp = new Dictionary<string, Prop>();
+        m_UseProp = new Dictionary<string, InteractiveProp>();
+        m_OwnProp = new Dictionary<string, BagProp>();
     }
 
     public void Use(string propName) { }

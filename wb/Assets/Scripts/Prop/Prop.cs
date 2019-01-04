@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Prop:MonoBehaviour {
 
-    public string _name;
-    public bool IsOwn;
-    public int allNum;
+    public string m_name;
+    public bool m_IsOwn;
+    public int m_allNum;
 
 
     public virtual void Use() { }

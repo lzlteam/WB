@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Robot{
 
-    public Attribute mattribut;        //基本属性
-    public string mprefab;             //机器人模型
-    public string mparticle;           //自带的特效
-    public bool mIsCollide;            //检测是否碰到可触发的东西
-    public GameObject mRobot;          //用来接收实例化的机器人
+    public Attribute m_attribut;        //基本属性
+    public string m_prefab;             //机器人模型
+    public string m_particle;           //自带的特效
+    public bool m_IsCollide;            //检测是否碰到可触发的东西
+    public GameObject m_Robot;          //用来接收实例化的机器人
 
 
     /// <summary>
@@ -17,9 +17,9 @@ public class Robot{
     /// <param name="BirthPoint"></param>
     public void Init(float hp,float maxhp,float speed,float damage,string name,string prefab,string particle)
     {
-        mattribut = new Attribute(hp, maxhp, speed, damage, name);
-        mprefab = prefab;
-        mparticle = particle;
+        m_attribut = new Attribute(hp, maxhp, speed, damage, name);
+        m_prefab = prefab;
+        m_particle = particle;
     }
     
     /// <summary>

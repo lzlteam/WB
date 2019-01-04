@@ -5,36 +5,36 @@ using UnityEngine;
 public class LoadResource
 {
 
-    public const string mRobotModelPath = "Charactor/Robot/";
-    public const string mEnemyModelPath = "Charactor/Enemy/";
-    public const string mSpritePath = "Sprite/";
-    public const string mParticlePath = "Particle/";
-    public const string mAudioClipPath = "AudioClip/";
-    public const string mUIPath = "UI/";
+    public const string m_RobotModelPath = "Charactor/Robot/";
+    public const string m_EnemyModelPath = "Charactor/Enemy/";
+    public const string m_SpritePath = "Sprite/";
+    public const string m_ParticlePath = "Particle/";
+    public const string m_AudioClipPath = "AudioClip/";
+    public const string m_UIPath = "UI/";
     
 
     public GameObject LoadRobot(string name)
     {
-        return Instantiation(mRobotModelPath + name);
+        return Instantiation(m_RobotModelPath + name);
     }
 
     public GameObject LoadEnemy(string name)
     {
-        return Instantiation(mEnemyModelPath + name);
+        return Instantiation(m_EnemyModelPath + name);
     }
 
     public Sprite LoadSprite(string name) {
 
-        return Resources.Load(mSpritePath + name) as Sprite;
+        return Resources.Load(m_SpritePath + name) as Sprite;
     }
 
     public AudioClip LoadAudioClip(string name)
     {
-        return Resources.Load(mAudioClipPath + name, typeof(AudioClip)) as AudioClip;
+        return Resources.Load(m_AudioClipPath + name, typeof(AudioClip)) as AudioClip;
     }
 
     public GameObject LoadParticle(string name) {
-        return Instantiation(mParticlePath + name);
+        return Instantiation(m_ParticlePath + name);
     }
 
     /// <summary>

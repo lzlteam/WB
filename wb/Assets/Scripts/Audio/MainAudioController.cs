@@ -5,10 +5,10 @@ using UnityEngine;
 public class MainAudioController : GameManager
 {
 
-    private AudioClip mBackGroundMusic;
-    public static MainAudioController instance;
-    private List<AudioClip> mAudioClip;
+    private AudioClip m_BackGroundMusic;
+    private List<AudioClip> m_AudioClip;
 
+    public static MainAudioController instance;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class MainAudioController : GameManager
     /// <returns></returns>
     public AudioClip GetAudioClip(string name) {
 
-        return mAudioClip[0];
+        return m_AudioClip[0];
     }
 
 }

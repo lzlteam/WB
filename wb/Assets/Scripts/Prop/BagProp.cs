@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class BagProp : Prop {
     
-    public Image pic2D;
-    public int mID;
+    public Image m_pic2D;
+    public int m_ID;
 
     /// <summary>
     /// 将道具添加到背包中
@@ -22,5 +22,5 @@ public class BagProp : Prop {
     /// 获取该种道具共有多少个
     /// </summary>
     /// <returns></returns>
-    public virtual int GetAllNum() { return allNum; }
+    public virtual int GetAllNum() { return m_allNum; }
 }
