@@ -10,10 +10,10 @@ public class Test1 : BagProp {
     /// </summary>
     private void Start()
     {
-        PropMgr.instance.m_AllProp.Add(name, this); //将道具自加载到所有道具目录下
         m_name = "Test1";
         m_IsOwn = false;
         m_allNum = 0;
+        PropMgr.instance.m_AllProp.Add(m_name, this); //将道具自加载到所有道具目录下
     }
 
     public override void Use() {

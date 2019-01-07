@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
             return;
         }
         else {
-
-            //RobotManager.instance.Init();
+            RobotInfo robotInfo = new RobotInfo();
+            RobotManager.instance.Init(robotInfo.hp, robotInfo.maxhp, robotInfo.speed, robotInfo.damage, robotInfo.name, robotInfo.prefeb, robotInfo.particle);
             EnemyManager.instance.Init();
             UIController.instance.Init();
         }

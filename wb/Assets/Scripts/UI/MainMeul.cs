@@ -12,14 +12,11 @@ public class MainMeul{
 
     public void Show() {
         
-        Cursor.visible = true;
         m_meul.SetActive(true);
 
     }
     public void Hide() {
         m_meul.SetActive(false);
-
-        Cursor.visible = false;
     }
 
     public void BackGame() { }

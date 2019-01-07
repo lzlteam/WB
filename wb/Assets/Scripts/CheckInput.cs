@@ -9,7 +9,7 @@ public class CheckInput : GameManager {
     //记录输入间隔
     private float m_time = 0.0f;
     //隔多少秒接收一次输入
-    private float m_interput = 1f;
+    private float m_interput = 0.3f;
 
     /// <summary>
     /// 对键盘输入命令进行接收

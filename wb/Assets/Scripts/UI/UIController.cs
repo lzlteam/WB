@@ -52,9 +52,12 @@ public class UIController : GameManager
         if (m_isBagOpen)
         {
             m_propUI.Hide();
+            Cursor.visible = false;
             m_isBagOpen = false;
         }
-        else {
+        else
+        {
+            Cursor.visible = true;
             m_propUI.Show();
             m_isBagOpen = true;
         }
@@ -69,10 +72,18 @@ public class UIController : GameManager
         if (m_isMeulOpen)
         {
             m_mainmeulUI.Hide();
+            m_propUI.Hide();
+            Cursor.visible = false;
             m_isMeulOpen = false;
         }
-        else
+        else if (m_isBagOpen)
         {
+            m_propUI.Hide();
+            Cursor.visible = false;
+            m_isBagOpen = false;
+        }
+        else {
+            Cursor.visible = true;
             m_mainmeulUI.Show();
             m_isMeulOpen = true;
         }

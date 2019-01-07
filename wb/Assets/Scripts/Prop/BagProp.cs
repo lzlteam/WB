@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class BagProp : Prop {
     
-    public Image m_pic2D;
-    public int m_ID;
+    public Image m_pic2D;           //背包道具的小图标
+    public int m_ID;                //在背包的哪一格
 
     /// <summary>
     /// 将道具添加到背包中

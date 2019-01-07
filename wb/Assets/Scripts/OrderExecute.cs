@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrderExecute : GameManager {
+public class OrderExecute : GameManager
+{
 
     //执行操作位符
     private static int m_Execute = 0;
@@ -16,19 +17,19 @@ public class OrderExecute : GameManager {
         switch (m_Operat[m_Execute])
         {
             case KeyCode.W:
-                RobotManager.instance.RobotMove(Vector3.forward);
+                RobotManager.instance.RobotMove(RobotManager.instance.m_robot.m_Robot.transform.forward, false);
                 ResetQueue();
                 break;
             case KeyCode.S:
-                RobotManager.instance.RobotMove(Vector3.down);
+                RobotManager.instance.RobotMove(-RobotManager.instance.m_robot.m_Robot.transform.forward, false);
                 ResetQueue();
                 break;
             case KeyCode.A:
-                RobotManager.instance.RobotMove(Vector3.left);
+                RobotManager.instance.RobotRotate(-1);
                 ResetQueue();
                 break;
             case KeyCode.D:
-                RobotManager.instance.RobotMove(Vector3.right);
+                RobotManager.instance.RobotRotate(1);
                 ResetQueue();
                 break;
             case KeyCode.B:
@@ -44,11 +45,11 @@ public class OrderExecute : GameManager {
                 ResetQueue();
                 break;
             case KeyCode.Space:
-                RobotManager.instance.RobotMove(Vector3.up);
+                RobotManager.instance.RobotJump();
                 ResetQueue();
                 break;
-            case KeyCode.LeftShift:
-                RobotManager.instance.RobotMove(Vector3.forward);
+            case KeyCode.F:
+                RobotManager.instance.RobotMove(RobotManager.instance.m_robot.m_Robot.transform.forward, true);
                 ResetQueue();
                 break;
 
@@ -60,7 +61,8 @@ public class OrderExecute : GameManager {
     }
 
     //执行完命令后，将其从命令队列中移除
-    private void ResetQueue() {
+    private void ResetQueue()
+    {
         m_Operat[m_Execute] = KeyCode.None;
     }
 }
