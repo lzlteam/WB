@@ -31,7 +31,7 @@ public class Robot
 
         m_Animator = m_Robot.GetComponent<Animator>();
 
-        Debug.Log("s");
+
         m_characterController = m_Robot.GetComponent<CharacterController>();
     }
 
