@@ -88,4 +88,13 @@ public class UIController : GameManager
             m_isMeulOpen = true;
         }
     }
+
+    /// <summary>
+    /// 调用道具背包的添加方法
+    /// </summary>
+    /// <param name="name"></param>
+    public void Add(string name) {
+
+        m_propUI.AddProp(name);
+    }
 }

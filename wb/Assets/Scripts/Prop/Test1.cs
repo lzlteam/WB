@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Sprites;
+using System;
 
-public class Test1 : BagProp {
-
-
+public class Test1:BagProp{
+    
     /// <summary>
-    /// 这里记得要给add方法try，catch 若字典中已有，则数量++
+    /// 初始化该类道具的一些基本信息，并将其加载到所有道具目录下
     /// </summary>
-    private void Start()
+    public Test1()
     {
         m_name = "Test1";
         m_IsOwn = false;
-        m_allNum = 0;
+        m_OwnAllNum = 0;
+        m_allNum = 1;
+        m_ID = -1;
+        //m_Prefeb = new GameObject();
         PropMgr.instance.m_AllProp.Add(m_name, this); //将道具自加载到所有道具目录下
+        
     }
 
     public override void Use() {
@@ -27,7 +33,7 @@ public class Test1 : BagProp {
         Debug.Log("Test1 被删除.");
     }
 
-    public override int GetAllNum(){
-        return m_allNum;
+    public override string GetAllNum(){
+        return m_OwnAllNum.ToString();
     }
 }

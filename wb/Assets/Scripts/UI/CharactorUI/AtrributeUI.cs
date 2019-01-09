@@ -17,11 +17,12 @@ public class AtrributeUI : CharactorUI
     public void Init()
     {
         /*    初始化 示例
-        m_name = m_atrributeUI.GetComponentInChildren<Text>();
-        m_name.text = "sss";
-        m_hp = m_atrributeUI.GetComponentInChildren<Slider>();
-        m_hp.value = 100;
         */
+
+        m_name = m_atrributeUI.GetComponentInChildren<Text>();
+        m_name.text = RobotManager.instance.m_robot.m_attribut.m_name;
+        m_hp = m_atrributeUI.GetComponentInChildren<Slider>();
+        m_hp.value = RobotManager.instance.m_robot.m_attribut.m_hp;
     }
 
     /// <summary>

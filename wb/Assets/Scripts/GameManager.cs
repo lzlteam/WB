@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
             RobotInfo robotInfo = new RobotInfo();
             RobotManager.instance.Init(robotInfo.hp, robotInfo.maxhp, robotInfo.speed, robotInfo.damage, robotInfo.name, robotInfo.prefeb, robotInfo.particle);
             EnemyManager.instance.Init();
+            PropMgr.instance.Init();
+
             UIController.instance.Init();
         }
     }

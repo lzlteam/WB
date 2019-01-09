@@ -16,7 +16,7 @@ public class OrderExecute : GameManager
 
         switch (m_Operat[m_Execute])
         {
-            case KeyCode.W:
+            /*case KeyCode.W:
                 RobotManager.instance.RobotMove(RobotManager.instance.m_robot.m_Robot.transform.forward, false);
                 ResetQueue();
                 break;
@@ -32,6 +32,15 @@ public class OrderExecute : GameManager
                 RobotManager.instance.RobotRotate(1);
                 ResetQueue();
                 break;
+            case KeyCode.Space:
+                RobotManager.instance.RobotJump();
+                ResetQueue();
+                break;
+            case KeyCode.F:
+                RobotManager.instance.RobotMove(RobotManager.instance.m_robot.m_Robot.transform.forward, true);
+                ResetQueue();
+                break;   
+             */
             case KeyCode.B:
                 UIController.instance.ShowBagUI();
                 ResetQueue();
@@ -41,17 +50,10 @@ public class OrderExecute : GameManager
                 ResetQueue();
                 break;
             case KeyCode.E:
+                RobotManager.instance.PickUp();
+                ResetQueue();
+                break;
 
-                ResetQueue();
-                break;
-            case KeyCode.Space:
-                RobotManager.instance.RobotJump();
-                ResetQueue();
-                break;
-            case KeyCode.F:
-                RobotManager.instance.RobotMove(RobotManager.instance.m_robot.m_Robot.transform.forward, true);
-                ResetQueue();
-                break;
 
             default:
                 break;

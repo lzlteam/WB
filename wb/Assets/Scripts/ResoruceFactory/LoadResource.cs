@@ -11,7 +11,9 @@ public class LoadResource
     public const string m_ParticlePath = "Particle/";
     public const string m_AudioClipPath = "AudioClip/";
     public const string m_UIPath = "UI/";
-    
+    public const string m_Prop = "Prop/";
+
+
 
     public GameObject LoadRobot(string name)
     {
@@ -23,9 +25,15 @@ public class LoadResource
         return Instantiation(m_EnemyModelPath + name);
     }
 
-    public Sprite LoadSprite(string name) {
+    public GameObject LoadProp(string name)
+    {
+        return Instantiation(m_Prop + name);
+    }
 
-        return Resources.Load(m_SpritePath + name) as Sprite;
+    public Sprite LoadSprite(string name) {
+        
+
+        return Resources.Load<Sprite>(m_SpritePath + name) as Sprite;
     }
 
     public AudioClip LoadAudioClip(string name)

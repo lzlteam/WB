@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class BagProp : Prop {
     
-    public Image m_pic2D;           //背包道具的小图标
     public int m_ID;                //在背包的哪一格
+    public GameObject m_Prefeb;     //道具的prefeb
+    public int m_OwnAllNum;         //已经拥有的该类道具的数量
 
     /// <summary>
     /// 将道具添加到背包中
@@ -22,5 +23,5 @@ public class BagProp : Prop {
     /// 获取该种道具共有多少个
     /// </summary>
     /// <returns></returns>
-    public virtual int GetAllNum() { return m_allNum; }
+    public virtual string GetAllNum() { return m_OwnAllNum.ToString(); }
 }

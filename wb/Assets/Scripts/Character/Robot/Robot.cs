@@ -30,16 +30,9 @@ public class Robot
 
 
         m_Animator = m_Robot.GetComponent<Animator>();
-
-
         m_characterController = m_Robot.GetComponent<CharacterController>();
     }
 
-    /// <summary>
-    /// 传入方向
-    /// </summary>
-    /// <param name="direction"></param>
-    /// 
 
     //设置动画开始的时间
     public void Animon(string anim)
@@ -59,20 +52,15 @@ public class Robot
     }
 
     //人物的移动
-    public void Move(Vector3 direction, bool isRun)
+    public void Walk(Vector3 direction)
     {
-        if (isRun)
-        {
-
-            m_Animator.SetFloat("Speed_f", 1);
-            m_characterController.Move(direction * m_attribut.m_speed * 2 * Time.deltaTime);
-        }
-        else
-        {
-            m_Animator.SetFloat("Speed_f", 0.5f);
-            m_characterController.Move(direction * m_attribut.m_speed * Time.deltaTime);
-        }
-
+        m_Animator.SetFloat("Speed_f", 0.3f);
+        m_characterController.Move(direction * m_attribut.m_speed * Time.deltaTime);
+    }
+    public void Run(Vector3 direction)
+    {
+        m_Animator.SetFloat("Speed_f", 1.0f);
+        m_characterController.Move(direction * m_attribut.m_speed * 2 * Time.deltaTime);
     }
     public void MoveStop()
     {
