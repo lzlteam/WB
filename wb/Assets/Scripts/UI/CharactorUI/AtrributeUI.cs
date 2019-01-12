@@ -20,15 +20,18 @@ public class AtrributeUI : CharactorUI
         */
 
         m_name = m_atrributeUI.GetComponentInChildren<Text>();
-        m_name.text = RobotManager.instance.m_robot.m_attribut.m_name;
+        m_name.text = GetRobotName();
         m_hp = m_atrributeUI.GetComponentInChildren<Slider>();
-        m_hp.value = RobotManager.instance.m_robot.m_attribut.m_hp;
+        m_hp.value = GetRobotHp();
+        m_headPortrait = m_atrributeUI.GetComponentInChildren<Image>();
+        m_headPortrait.sprite = RobotManager.instance.GetSprite(GetRobotName());
     }
 
     /// <summary>
     /// 更新血条
     /// </summary>
-    void Update() {
-
+    public void HpUpdate() {
+        m_hp.value = GetRobotHp();
+        
     }
 }

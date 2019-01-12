@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Audio\MainAudioController.cs" />
-    <Compile Include="Assets\Scripts\Character\Attribute\Attribute.cs" />
+    <Compile Include="Assets\Scripts\Character\Attribute\CharacterAttribute.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyAI.cs" />
     <Compile Include="Assets\Scripts\Character\Enemy\EnemyManager.cs" />
@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\UI\MainMeul.cs" />
     <Compile Include="Assets\Scripts\UI\MiniMap.cs" />
     <Compile Include="Assets\Scripts\UI\TaskUI.cs" />
+    <Compile Include="Assets\Scripts\UI\TipsUI.cs" />
     <Compile Include="Assets\Scripts\UI\UIController.cs" />
     <Compile Include="Assets\ToonBot\ToonBot(Free) Assets\Controller\RobotTestScriptFree.cs" />
     <None Include="Assets\SimpleApocalypse\ReadMe.txt" />

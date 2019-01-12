@@ -14,12 +14,12 @@ public class MeulState : ISceneState{
 
     public override void StateStart()
     {
-        Debug.Log("MeulState");
+        //Debug.Log("MeulState");
     }
 
     public override void StateUpdate()
     {
-        Debug.Log(getName());
+        //Debug.Log(getName());
     }
 
     public override void StateEnd()

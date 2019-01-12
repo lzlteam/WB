@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// 管理背包UI，每一个格子的信息
+/// </summary>
 public class PropUI : CharactorUI {
 
     private static Dictionary<int, bool> m_bagIndex = new Dictionary<int, bool>();                 //背包状态UI字典
-    private static int m_maxpanel = 16;                                                            //背包最大格数
+    private static int m_maxpanel = 10;                                                            //背包最大格数
     private static Image[] m_images = new Image[m_maxpanel];                                       //道具小图标
     public GameObject m_bag;                                                                       //背包UI对象
     
@@ -50,6 +54,7 @@ public class PropUI : CharactorUI {
                         m_images[i].name = name;
                         m_images[i].sprite = PropMgr.instance.GetSprite(name);
                         PropMgr.instance.m_OwnProp[name].m_ID = i;
+                        PropMgr.instance.m_OwnProp[name].m_IsOwn = true;
                         m_images[i].gameObject.GetComponentInChildren<Text>().text = PropMgr.instance.m_OwnProp[name].GetAllNum();
                         m_bagIndex[i] = true;
                         break;
@@ -81,6 +86,8 @@ public class PropUI : CharactorUI {
             m_images[id].sprite = PropMgr.instance.GetSprite("null");
             m_bagIndex[id] = false;
             m_images[id].gameObject.GetComponentInChildren<Text>().text = "";
+
+            PropMgr.instance.m_OwnProp[name].m_IsOwn = false;
             PropMgr.instance.Dele(name);
         }
         else

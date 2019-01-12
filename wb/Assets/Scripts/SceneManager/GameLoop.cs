@@ -19,7 +19,7 @@ public class GameLoop : MonoBehaviour {
     private void ScenesStart()
     {
         controller = new SceneStateController();
-        controller.SetState(new MeulState(controller), false);
+        controller.SetState(new MeulState(controller), true);
     }
     // Update is called once per frame
     void Update()

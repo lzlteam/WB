@@ -8,6 +8,7 @@ public class UIController : GameManager
     private PropUI m_propUI;
     private AtrributeUI m_atrributeUI;
     private TaskUI m_taskUI;
+    private TipsUI m_tipsUI;
     private bool m_isBagOpen = false;            //保存背包的状态
     private bool m_isMeulOpen = false;           //保存菜单的状态 
 
@@ -27,18 +28,20 @@ public class UIController : GameManager
         m_propUI = new PropUI();
         m_atrributeUI = new AtrributeUI();
         m_taskUI = new TaskUI();
+        m_tipsUI = new TipsUI();
         
 
         m_mainmeulUI.m_meul = GameObject.Find("UIController/Meul");
         m_propUI.m_bag = GameObject.Find("UIController/CharactorUI/PropUI");
         m_atrributeUI.m_atrributeUI = GameObject.Find("UIController/CharactorUI/AtrributeUI");
-        //m_taskUI.m_TaskUI = GameObject.Find("TaskUI");
+        m_tipsUI.m_TipsUI = GameObject.Find("UIController/TipsUI");
+        m_taskUI.m_TaskUI = GameObject.Find("UIController/TaskUI");
 
         m_propUI.Init();
         m_mainmeulUI.Init();
         m_atrributeUI.Init();
         m_taskUI.Init();
-
+        m_tipsUI.Init();
 
         Cursor.visible = false;
     }
@@ -96,5 +99,21 @@ public class UIController : GameManager
     public void Add(string name) {
 
         m_propUI.AddProp(name);
+    }
+
+    /// <summary>
+    /// 调用道具背包的使用方法
+    /// </summary>
+    /// <param name="id"></param>
+    public void Use(int id) {
+        m_propUI.UseProp(id);
+    }
+
+
+
+    private void Update()
+    {
+        m_atrributeUI.HpUpdate();
+        //Debug.Log(RobotManager.instance.m_robot.m_attribut.m_hp);
     }
 }

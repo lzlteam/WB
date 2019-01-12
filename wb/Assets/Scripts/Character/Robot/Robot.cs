@@ -5,15 +5,15 @@ using UnityEngine;
 public class Robot
 {
 
-    public Attribute m_attribut;        //基本属性
-    public string m_prefab;             //机器人模型
-    public string m_particle;           //自带的特效
-    public bool m_IsCollide;            //检测是否碰到可触发的东西
-    public GameObject m_Robot;          //用来接收实例化的机器人
+    public CharacterAttribute m_attribut;        //基本属性
+    public string m_prefab;                      //机器人模型
+    public string m_particle;                    //自带的特效
+    public bool m_IsCollide;                     //检测是否碰到可触发的东西
+    public GameObject m_Robot;                   //用来接收实例化的机器人
     private Animator m_Animator;
     private CharacterController m_characterController;
     public float lastMtime;
-    public float lastRtime;
+    public float lastHtime;
     public float lastJtime;
 
 
@@ -24,7 +24,7 @@ public class Robot
     /// <param name="BirthPoint"></param>
     public void Init(float hp, float maxhp, float speed, float damage, string name, string prefab, string particle)
     {
-        m_attribut = new Attribute(hp, maxhp, speed, damage, name);
+        m_attribut = new CharacterAttribute(hp, maxhp, speed, damage, name);
         m_prefab = prefab;
         m_particle = particle;
 
@@ -42,8 +42,8 @@ public class Robot
             case "M":
                 lastMtime = Time.time;
                 break;
-            case "R":
-                lastRtime = Time.time;
+            case "H":
+                lastHtime = Time.time;
                 break;
             case "J":
                 lastJtime = Time.time;
@@ -54,24 +54,23 @@ public class Robot
     //人物的移动
     public void Walk(Vector3 direction)
     {
-        m_Animator.SetFloat("Speed_f", 0.3f);
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetFloat("Speed_f", 0.3f);
         m_characterController.Move(direction * m_attribut.m_speed * Time.deltaTime);
     }
     public void Run(Vector3 direction)
     {
-        m_Animator.SetFloat("Speed_f", 1.0f);
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetFloat("Speed_f", 1.0f);
         m_characterController.Move(direction * m_attribut.m_speed * 2 * Time.deltaTime);
     }
     public void MoveStop()
     {
-        m_Animator.SetFloat("Speed_f", 0);
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetFloat("Speed_f", 0);
     }
 
     //人物的旋转
-    public void Rotate(int rotate)
-    {
-        m_Robot.transform.Rotate(Vector3.up, rotate * m_attribut.m_speed * 0.5f);
-    }
     public void Rotate()
     {
         float pTarget = GameObject.Find("Main Camera").transform.eulerAngles.y;
@@ -84,17 +83,42 @@ public class Robot
     //人物的跳跃
     public void Jumpon()
     {
-        m_Animator.SetBool("Jump_b", true);
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetBool("Jump_b", true);
     }
     public void Jumpend()
     {
-        m_Animator.SetBool("Jump_b", false);
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetBool("Jump_b", false);
+    }
+
+    //人物的交互动画
+    public void Handon()
+    {
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetInteger("Handon", 1);
+    }
+    public void Handend()
+    {
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetInteger("Handon", 0);
+    }
+    public void Pickup()
+    {
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetInteger("WeaponType_int", 12);
+    }
+    public void Pickend()
+    {
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetInteger("WeaponType_int", 0);
     }
 
 
     //机器人死了，可以触发重新开始，退出游戏等
     public void Die()
     {
-        m_Animator.SetBool("Death_b", true);
+        if (m_Animator.gameObject.activeSelf)
+            m_Animator.SetBool("Death_b", true);
     }
 }

@@ -55,6 +55,18 @@ public class OrderExecute : GameManager
                 break;
 
 
+              //存档读档测试
+            case KeyCode.L:
+                FilePoint.Instance.Save(RobotManager.instance.m_robot);
+                ResetQueue();
+                break;
+            case KeyCode.R:
+                FilePoint.Instance.Read();
+                ResetQueue();
+                break;
+            
+
+
             default:
                 break;
         }

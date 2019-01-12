@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PropList {
 
-    public List<BagProp> m_Proplist = new List<BagProp>();
+    /// <summary>
+    /// 道具列表，保存了所有类别道具的管理类
+    /// </summary>
+    public List<Prop> m_Proplist = new List<Prop>();
 
     public PropList() {
         m_Proplist.Add(new Test1());
-
     }
 	
 }

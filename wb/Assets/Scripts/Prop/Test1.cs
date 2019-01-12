@@ -15,7 +15,7 @@ public class Test1:BagProp{
         m_name = "Test1";
         m_IsOwn = false;
         m_OwnAllNum = 0;
-        m_allNum = 1;
+        m_allNum = 2;
         m_ID = -1;
         //m_Prefeb = new GameObject();
         PropMgr.instance.m_AllProp.Add(m_name, this); //将道具自加载到所有道具目录下

@@ -12,6 +12,7 @@ public class RobotManager : GameManager
 
     public Robot m_robot = new Robot();
     public static RobotManager instance;
+    private bool isHold = false;
 
 
     private void Awake()
@@ -30,13 +31,12 @@ public class RobotManager : GameManager
     /// <param name="name"></param>
     public void Init(float hp, float maxhp, float speed, float damage, string name, string prefab, string particle)
     {
-
-
         m_robot.m_Robot = m_LoadResource.LoadRobot(prefab);
 
         m_robot.Init(hp, maxhp, speed, damage, name, prefab, particle);
-
     }
+
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.W))
@@ -78,14 +78,18 @@ public class RobotManager : GameManager
         {
             m_robot.Jumpend();
         }
+        if (Time.time - m_robot.lastHtime > 0.5f)
+        {
+            m_robot.Pickend();
+        }
     }
     public void RobotMove()
     {
         m_robot.Animon("M");
     }
-    public void RobotRotate()
+    public void RobotHandon()
     {
-        m_robot.Animon("R");
+        m_robot.Animon("H");
     }
     public void RobotJump()
     {
@@ -94,10 +98,22 @@ public class RobotManager : GameManager
     }
 
 
-    public void PickUp() {
+    /// <summary>
+    /// 根据传入名字，加载对应头像
+    /// </summary>
+    /// <param name="RobotName"></param>
+    /// <returns></returns>
+    public Sprite GetSprite(string RobotName)
+    {
+        return m_LoadResource.LoadSprite(RobotName);
+    }
+
+    public void PickUp()
+    {
 
         RaycastHit hitInfo;
         LayerMask mask = 1 << (LayerMask.NameToLayer("Prop"));
+
         if (Physics.Raycast(m_robot.m_Robot.transform.position, m_robot.m_Robot.transform.forward, out hitInfo, 2f, mask))
         {
             string name = hitInfo.transform.gameObject.name;
@@ -113,12 +129,32 @@ public class RobotManager : GameManager
             }
             catch (Exception e)
             {
+                if (hitInfo.collider.gameObject.tag.Equals("BagProp"))
+                {
+                    RobotHandon();
+                    m_robot.Pickup();
+                    UIController.instance.Add(name);
+                    PropMgr.instance.m_OwnProp[name].m_Prefeb = hitInfo.transform.gameObject;
+                    PropMgr.instance.m_OwnProp[name].m_Prefeb.SetActive(false);
+                }
+                if (hitInfo.collider.gameObject.tag.Equals("InteractiveProp"))
+                {
+                    Debug.Log(e);
+                    if (!isHold)
+                    {
+                        m_robot.Handon();
+                        isHold = !isHold;
+                        hitInfo.collider.gameObject.transform.parent = m_robot.m_Robot.transform;
+                    }
+                    else
+                    {
+                        m_robot.Handend();
+                        isHold = !isHold;
+                        hitInfo.collider.gameObject.transform.parent = GameObject.Find("Enviroment").transform;
+                    }
 
-                Debug.Log(e);
 
-                UIController.instance.Add(name);
-                PropMgr.instance.m_OwnProp[name].m_Prefeb = hitInfo.transform.gameObject;
-                PropMgr.instance.m_OwnProp[name].m_Prefeb.SetActive(false);
+                }
             }
 
         }
