@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FilePoint : GameManager
 {
@@ -44,15 +45,51 @@ public class FilePoint : GameManager
     }
 
     /// <summary>
-    /// 载入存档背包数据
+    /// 载入存档背包数据,场景内道具信息
     /// </summary>
     /// <param name="fileMessage"></param>
     public void PropLoadSave(FileMessage fileMessage)
     {
-        foreach (KeyValuePair<string, Prop> kvps in fileMessage.OwnProp)
+
+
+        int i = 0;
+        PropMgr.instance.m_AllProp.Clear();
+        PropMgr.instance.Init();
+
+
+        //先清空背包道具字典，然后读取存档中相关的信息
+        PropMgr.instance.m_OwnProp.Clear();
+        for (i = 0; i < fileMessage.m_MaxBagPropNum; i++)
         {
-            UIController.instance.Add(kvps.Key);
-            PropMgr.instance.m_OwnProp[kvps.Key].m_allNum = kvps.Value.m_allNum;
+            BagProp bagprop = new BagProp
+            {
+                m_name = fileMessage.m_name[i],
+                m_allNum = fileMessage.m_allNum[i],
+                m_ID = fileMessage.m_ID[i],
+                m_IsOwn = fileMessage.m_IsOwn[i],
+                m_OwnAllNum = fileMessage.m_OwnAllNum[i],
+                m_Proptype = fileMessage.m_Proptype[i],
+                m_Prefeb = null
+            };
+            PropMgr.instance.m_OwnProp.Add(bagprop.m_name, bagprop);
+            
+            PropMgr.instance.m_AllProp[bagprop.m_name] = bagprop;
+        }
+
+        //先清空背包UI字典，再将存档中的信息赋值给对应的
+        UIController.instance.m_propUI.m_bagIndex.Clear();
+        for (i = 0; i < fileMessage.m_MaxPropUINum; i++)
+        {
+            UIController.instance.m_propUI.m_bagIndex.Add(fileMessage.m_panelNum[i], fileMessage.m_isNull[i]);
+            UIController.instance.m_propUI.m_images[i].name = fileMessage.m_sprite[i];
+            UIController.instance.m_propUI.m_images[i].sprite = PropMgr.instance.GetSprite(fileMessage.m_sprite[i]);
+
+            //格子为空的就不需要改变他的下标
+            if (fileMessage.m_isNull[i])
+            {
+                UIController.instance.m_propUI.UpdatePanel(fileMessage.m_sprite[i]);
+            }
+            
         }
     }
 

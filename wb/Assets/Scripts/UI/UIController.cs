@@ -5,7 +5,7 @@ using UnityEngine;
 public class UIController : GameManager
 {
     private MainMeul m_mainmeulUI;
-    private PropUI m_propUI;
+    public PropUI m_propUI;
     private AtrributeUI m_atrributeUI;
     private TaskUI m_taskUI;
     private TipsUI m_tipsUI;

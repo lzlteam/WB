@@ -9,11 +9,11 @@ using UnityEngine.UI;
 /// </summary>
 public class PropUI : CharactorUI {
 
-    private static Dictionary<int, bool> m_bagIndex = new Dictionary<int, bool>();                 //背包状态UI字典
-    private static int m_maxpanel = 10;                                                            //背包最大格数
-    private static Image[] m_images = new Image[m_maxpanel];                                       //道具小图标
+    public Dictionary<int, bool> m_bagIndex = new Dictionary<int, bool>();                 //背包状态UI字典
+    private static int m_maxpanel = 16;                                                            //背包最大格数
+    public Image[] m_images = new Image[m_maxpanel];                                       //道具小图标
     public GameObject m_bag;                                                                       //背包UI对象
-    
+
 
     /// <summary>
     /// 初始化道具背包（道具状态字典等）,通过find方法找到对应的gameobject
@@ -23,10 +23,13 @@ public class PropUI : CharactorUI {
         for (int i = 0; i < m_maxpanel; i++) {
             m_bagIndex.Add(i, false);
         }
-
         m_images = m_bag.GetComponentsInChildren<Image>();
-
+        for (int i = 0; i < m_maxpanel; i++) {
+            m_images[i].name = "null";
+            m_images[i].sprite = PropMgr.instance.GetSprite("null");
+        }
     }
+
     public void Show() {
 
         m_bag.SetActive(true);
@@ -55,14 +58,14 @@ public class PropUI : CharactorUI {
                         m_images[i].sprite = PropMgr.instance.GetSprite(name);
                         PropMgr.instance.m_OwnProp[name].m_ID = i;
                         PropMgr.instance.m_OwnProp[name].m_IsOwn = true;
-                        m_images[i].gameObject.GetComponentInChildren<Text>().text = PropMgr.instance.m_OwnProp[name].GetAllNum();
+                        UpdatePanel(name);
                         m_bagIndex[i] = true;
                         break;
                     }
                 }
                 return 0;
             case 0:
-                m_images[PropMgr.instance.m_OwnProp[name].m_ID].gameObject.GetComponentInChildren<Text>().text = PropMgr.instance.m_OwnProp[name].GetAllNum();
+                UpdatePanel(name);
                 return 1;
             case -1:
                 return -1;
@@ -71,12 +74,19 @@ public class PropUI : CharactorUI {
         }
     }
 
+    /// <summary>
+    /// 通过名字，更新背包的小图标下面的数字
+    /// </summary>
+    /// <param name="name"></param>
+    public void UpdatePanel(string name) {
+        m_images[PropMgr.instance.m_OwnProp[name].m_ID].gameObject.GetComponentInChildren<Text>().text = PropMgr.instance.m_OwnProp[name].GetAllNum();
+    }
 
     /// <summary>
     /// 使用道具后，根据name值减少对应格子内的道具的数量，若小于等于0，则将格子空出来
     /// </summary>
     /// <param name="name"></param>
-    public void DeletProp(string name,int id)
+    public void DeletProp(string name, int id)
     {
 
         //Debug.Log(PropMgr.instance.m_OwnProp[name].m_OwnAllNum);
@@ -107,8 +117,13 @@ public class PropUI : CharactorUI {
             //Debug.Log("道具 " + (id) + "使用");
 
             PropMgr.instance.Use(m_images[id].name);
-            
-            DeletProp(m_images[id].name,id);
+
+            DeletProp(m_images[id].name, id);
         }
+    }
+
+
+    public int GetMaxBagNum() {
+        return m_maxpanel;
     }
 }

@@ -36,6 +36,8 @@ public class PropMgr : GameManager
             }
         }
     }
+    
+
 
     /// <summary>
     /// 根据道具名字，加载对应道具的小图标
@@ -52,22 +54,25 @@ public class PropMgr : GameManager
     /// 根据道具名，增加所拥有道具个数(已拥有该物品则返回0，未拥有返回1，没有该道具返回-1)
     /// </summary>
     /// <param name="propName"></param>
-    public int Add(string propName) {
-        
+    public int Add(string propName)
+    {
         try {
             m_OwnProp[propName].m_OwnAllNum++;
             //Debug.Log(propName + "物品增加1个");
             return 0;
         }
-        catch(Exception e) {
+        catch(Exception e)
+        {
 
             try
             {
+                //BagProp bag = (BagProp)m_AllProp[propName];
                 m_OwnProp.Add(propName, (BagProp)m_AllProp[propName]);
                 m_OwnProp[propName].m_OwnAllNum++;
                 return 1;
             }
-            catch (Exception e2) {
+            catch (Exception e2)
+            {
                 Debug.Log("错误！游戏中没有该道具 :" + e2);
                 return -1;
             }
